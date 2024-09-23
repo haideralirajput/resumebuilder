@@ -1,0 +1,458 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; 
+    background-color: #f9f9f9; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    color: #333; 
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: white; /* Light navbar */
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    
+}
+
+nav .logo {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: 450px;
+}
+
+nav .nav-links li {
+    margin-left: 50px;
+}
+
+nav .nav-links a {
+    color: rgb(87, 166, 202);
+    font-size: 16px;
+}
+
+/* Hero Section with Background Image */
+.hero {
+    background-image: url('assets/images/homebg.jpg'); /* Updated image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full height of viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 60px; /* To accommodate fixed navbar */
+}
+
+.hero .overlay {
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay for better text visibility */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white; /* White text in hero */
+}
+
+.hero-content p {
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #ccc; /* Light gray text */
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background-color: #1e90ff;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1c6fd4;
+}
+
+/* How It Works Section */
+.how-it-works {
+    background-color: #f9f9f9; /* Light background */
+    padding: 50px 10%;
+    text-align: center;
+    color: #333; /* Dark text */
+}
+
+.how-it-works .steps {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.how-it-works .step {
+    width: 30%;
+}
+
+.how-it-works .step h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Featured Templates Section */
+.featured-templates {
+    background-color: #ffffff;
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.template-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.template {
+    width: 30%;
+}
+
+
+.template button:hover {
+    background-color: #1c6fd4;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #ADD8E6; /* Light Blue Background */
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.testimonial {
+    margin-bottom: 20px;
+}
+
+.testimonial p {
+    font-size: 18px;
+    font-style: italic;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .how-it-works .steps, .template-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .how-it-works .step, .template {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+/* Feature Section */
+.feature-section {
+    background-color: #f9f9f9;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.feature-section h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 50px;
+    font-weight: bold;
+    line-height: 1.3;
+    font-family: 'Arial', sans-serif;
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Add space between the boxes */
+    align-items: stretch; /* Ensures all feature boxes have the same height */
+}
+
+.feature {
+    width: 30%; /* Set the width for each box */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* Sets a minimum height */
+}
+
+
+.feature:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 50px;
+    color: #1e90ff;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 20px;
+    color: #1e90ff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.feature p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Responsive Design for Features */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+/* General Styles */
+
+/* Container */
+.x-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Navbar Styles */
+
+
+
+.x-auth-buttons .x-btn {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid white;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.x-login {
+    background-color: transparent;
+}
+
+.x-signup {
+    background-color: #F48FB1;
+}
+
+/* Hero Section */
+.x-hero {
+    background-color: #ADD8E6; /* Light Blue Background */
+    padding: 4rem 0;
+}
+
+.x-hero-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.x-hero-image {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.x-hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.x-hero-text {
+    flex: 1;
+}
+
+.x-heading {
+    font-size: 2.5rem;
+    color: #4F63AC;
+    margin-bottom: 1rem;
+}
+
+.x-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.x-primary-btn {
+    background-color: #4F63AC;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+/* Features Section */
+.x-features {
+    background-color: #f9f9f9;
+    padding: 3rem 0;
+}
+
+.x-feature-list {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 2rem;
+}
+
+.x-feature-item {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: #4F63AC;
+}
+
+/* Footer */
+.x-footer {
+    background-color: #4F63AC;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .x-hero-content {
+        flex-direction: column;
+    }
+
+    .x-hero-image,
+    .x-hero-text {
+        margin: 0;
+        text-align: center;
+    }
+
+    .x-hero-image {
+        margin-bottom: 2rem;
+    }
+}
+/* Featured Templates Section */
+.p-featured-templates {
+    background-color: #F0F4F8; /* Light background color */
+    padding: 3rem 0; /* Spacing around the section */
+    text-align: center;
+}
+
+.p-featured-templates h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.p-template-grid {
+    display: flex;
+    justify-content: center; /* Center the templates */
+    gap: 2rem; /* Space between templates */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.p-template {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 280px; /* Set equal width for all templates */
+    text-align: center;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.p-template img {
+    width: 100%; /* Make sure images take full width */
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 1rem; /* Space between image and button */
+}
+
+.p-template button {
+    background-color: #4F63AC;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.p-template button:hover {
+    background-color: #3A4A88;
+}
+
+.p-template:hover {
+    transform: scale(1.05); /* Hover effect to scale the template */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .p-template-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}

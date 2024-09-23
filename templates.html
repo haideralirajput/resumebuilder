@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="templates.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Resume Builder</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!--  Section -->
+    <section class="header">
+        <div class="container">
+            <h1>Create Your Perfect Resume</h1>
+            <p><strong>Explore our professionally designed resume templates and find the perfect
+                    one to showcase your skills.</strong></p>
+        </div>
+    </section>
+
+
+
+    <!-- Templates Section -->
+    <section class="template-section">
+        <h1 class="title">Choose A Template, And Let’s Create Your Resume In Minutes</h1>
+
+        <div class="template-container">
+            <!-- Template 1 -->
+            <div class="template-box">
+                <img src="assets/images/haidercv.png" alt="Modern Template" class="template-img" style="width: 290px;height: 375px;">
+                <h3>Modern Template</h3>
+                <a href="utemplates.html" class="use-template-btn"> Use This Template</a>
+            </div>
+
+    <!-- Template 2 -->
+    <div class="template-box">
+        <img src="assets/images/demo-2.png" alt="Classic Template" class="template-img">
+        <h3>Classic Template</h3>
+        <a href="#" class="use-template-btn" id="useTemplateBtn">Use This Template</a>
+    </div>
+
+    <!-- Modal -->
+    <div id="templateModal" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4);">
+        <div style="background-color: white; margin: 20% auto; padding: 15px; border: 1px solid #888; width: 50%; max-width: 400px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+            <p>This template is not available right now.</p>
+        </div>
+    </div>
+
+
+
+            <!-- Template 3 -->
+            <div class="template-box">
+                <img src="assets/images/demo-3.png" alt="Creative Template" class="template-img">
+                <h3>Creative Template</h3>
+                <a href="#" class="use-template-btn">Use This Template</a>
+            </div>
+        </div>
+
+        <!-- Footer Message -->
+        <p class="footer-msg">* More templates will be added soon</p>
+    </section>
+    <!-- Client Testimonials Section -->
+    <!-- Client Testimonials Section -->
+    <section class="client-testimonials">
+        <h2>Listen To What Our Clients Say</h2>
+
+        <div class="testimonial-container">
+            <!-- Left Side: Client Main Image -->
+            <div class="client-img">
+                <img src="assets/images/clientimg.png" alt="Main Client" class="main-client">
+            </div>
+
+            <!-- Right Side: Testimonials with small profile images -->
+            <div class="client-feedback">
+                <!-- Client 1 -->
+                <div class="testimonial active" id="client1">
+                    <div class="client-profile">
+                        <img src="assets/images/client1.jpg" alt="Client 1" class="profile-img">
+                        <p class="client-name">Ajoy Das</p>
+                    </div>
+                    <p class="client-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Officiis magni,
+                        quisquam, accusantium dolores atque. Accusantium dolorum adipisci consectetur...</p>
+                </div>
+
+                <!-- Client 2 -->
+                <div class="testimonial" id="client2">
+                    <div class="client-profile">
+                        <img src="assets/images/client2.jpg" alt="Client 2" class="profile-img">
+                        <p class="client-name">Jebin Khan</p>
+                    </div>
+                    <p class="client-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Officiis magni,
+                        quisquam, accusantium dolores atque. Doloribus odit...</p>
+                </div>
+
+                <!-- Client 3 -->
+                <div class="testimonial" id="client3">
+                    <div class="client-profile">
+                        <img src="assets/images/client3.jpg" alt="Client 3" class="profile-img">
+                        <p class="client-name">Client Name 3</p>
+                    </div>
+                    <p class="client-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisquam mollitia
+                        voluptate saepe, consectetur adipisicing...</p>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="pagination-dots">
+                    <span class="dot active" onclick="showTestimonial(1)"></span>
+                    <span class="dot" onclick="showTestimonial(2)"></span>
+                    <span class="dot" onclick="showTestimonial(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Resume Builder. All Rights Reserved.</p>
+            </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("templateModal");
+            var btn = document.getElementById("useTemplateBtn");
+            var closeBtn = document.getElementsByClassName("close")[0];
+
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal.style.display = "block"; // Show the modal
+            });
+
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none"; // Hide the modal
+            });
+
+            window.addEventListener("click", function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none"; // Hide the modal
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

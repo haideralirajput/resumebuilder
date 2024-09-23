@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Builder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    a {
+    text-decoration: none;
+    color: inherit;
+}
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .dynamic-input {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .dynamic-input input {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .delete-btn {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover {
+      background-color: #e60000;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    button.add-more-btn {
+      margin-top: 10px;
+      background-color: #007bff;
+    }
+
+    button.add-more-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .bold-heading {
+      font-weight: bold;
+    }
+
+    .heading-line {
+      border-top: 1px solid #333;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+
+    .bullet-points ul {
+      padding-left: 20px;
+    }
+
+    .bullet-points li {
+      list-style-type: disc;
+    }
+
+    .template-preview {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .template-preview img {
+      max-width: 400px;
+      width: 260px;
+      height: 400px;
+    }
+
+    .template-label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .template-description {
+      color: #555;
+      margin-top: 5px;
+    }
+
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: white; /* Light navbar */
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    
+}
+
+nav .logo {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: 450px;
+}
+
+nav .nav-links li {
+    margin-left: 50px;
+}
+
+nav .nav-links a {
+    color: rgb(87, 166, 202);
+    font-size: 16px;
+}
+  </style>
+</head>
+
+<body>
+     <!-- Navigation Bar -->
+     <nav>
+        <div class="logo">Resume Builder</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+  <div class="container" style="margin-top: 80px;">
+    <section class="template-preview">
+      <img src="assets/images/haidercv.png" alt="Resume Template Preview"  />
+      <p class="template-label">Modern Template</p>
+      <p class="template-description">
+        A sleek and modern design perfect for professionals.
+      </p>
+    </section>
+    <form id="resumeForm">
+      <div class="section">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" /><br /><br />
+
+        <label for="location">Location:</label><br />
+        <input type="text" id="location" name="location" /><br /><br />
+
+        <label for="contact">Contact Info (Phone):</label><br />
+        <input type="text" id="contact" name="contact" /><br /><br />
+
+        <label for="email">Gmail:</label><br />
+        <input type="text" id="email" name="email" /><br /><br />
+
+        <label for="linkedin">LinkedIn Username:</label><br />
+        <input type="text" id="linkedin" name="linkedin" /><br /><br />
+      </div>
+
+      <div class="section">
+        <label for="objective" class="bold-heading">Objective:</label><br />
+        <textarea id="objective" name="objective"></textarea><br />
+      </div>
+
+      <div class="section">
+        <label for="skills" class="bold-heading">Skills:</label><br />
+        <div id="skillsSection" class="bullet-points">
+          <div class="dynamic-input">
+            <input type="text" name="skills[]" class="skill-input" />
+            <button type="button" class="delete-btn" onclick="removeField(this)">
+              Delete
+            </button>
+          </div>
+        </div>
+        <button type="button" class="add-more-btn" onclick="addField('skillsSection', 'skill-input')">
+          Add More Skills</button><br />
+      </div>
+
+      <div class="section">
+        <label for="education" class="bold-heading">Education:</label><br />
+        <div id="educationSection">
+          <div class="dynamic-input">
+            <input type="text" name="education[]" class="education-input" placeholder="Degree" />
+            <input type="text" name="educationInstitute[]" placeholder="Institute" />
+            <input type="text" name="educationYear[]" placeholder="Year" />
+            <button type="button" class="delete-btn" onclick="removeField(this)">
+              Delete
+            </button>
+          </div>
+        </div>
+        <button type="button" class="add-more-btn" onclick="addField('educationSection', 'education-input')">
+          Add More Education</button><br />
+      </div>
+
+      <div class="section">
+        <label for="projects" class="bold-heading">Projects:</label><br />
+        <div id="projectsSection">
+          <div class="dynamic-input">
+            <input type="text" name="projects[]" class="project-input" placeholder="Project Name" />
+            <button type="button" class="delete-btn" onclick="removeField(this)">
+              Delete
+            </button>
+          </div>
+        </div>
+        <button type="button" class="add-more-btn" onclick="addField('projectsSection', 'project-input')">
+          Add More Projects</button><br />
+      </div>
+
+      <div class="section">
+        <label for="languages" class="bold-heading">Languages:</label><br />
+        <div id="languagesSection">
+          <div class="dynamic-input">
+            <input type="text" name="languages[]" class="language-input" />
+            <button type="button" class="delete-btn" onclick="removeField(this)">
+              Delete
+            </button>
+          </div>
+        </div>
+        <button type="button" class="add-more-btn" onclick="addField('languagesSection', 'language-input')">
+          Add More Languages</button><br />
+      </div>
+
+      <button type="button" onclick="saveDataAndRedirect()">Generate Resume</button>
+    </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+
+  <script>
+      function saveDataAndRedirect() {
+          // Collect the form data
+          const formData = {
+              name: document.getElementById("name").value,
+              location: document.getElementById("location").value,
+              contact: document.getElementById("contact").value,
+              email: document.getElementById("email").value,
+              linkedin: document.getElementById("linkedin").value,
+              objective: document.getElementById("objective").value,
+              skills: Array.from(document.getElementsByClassName("skill-input")).map((input) => input.value),
+              education: Array.from(document.getElementsByClassName("education-input")).map((input, index) => {
+                  const year = document.getElementsByName("educationYear[]")[index].value;
+                  const institute = document.getElementsByName("educationInstitute[]")[index].value;
+                  return { degree: input.value, institute: institute, year: year };
+              }),
+              projects: Array.from(document.getElementsByClassName("project-input")).map((input) => input.value),
+              languages: Array.from(document.getElementsByClassName("language-input")).map((input) => input.value),
+          };
+  
+          // Store data in localStorage
+          localStorage.setItem("resumeData", JSON.stringify(formData));
+  
+          // Redirect to the PDF preview page
+          window.location.href = "preview.html";
+      }
+  </script>
+  <script>
+     function addField(sectionId, className) {
+      const section = document.getElementById(sectionId);
+      const div = document.createElement("div");
+      div.className = "dynamic-input";
+      if (className === "education-input") {
+        div.innerHTML = `<input type="text" name="${className}[]" class="${className}" placeholder="Degree">
+                                 <input type="text" name="educationInstitute[]" placeholder="Institute">
+                                 <input type="text" name="educationYear[]" placeholder="Year">
+                                 <button type="button" class="delete-btn" onclick="removeField(this)">Delete</button>`;
+      } else if (className === "project-input") {
+        div.innerHTML = `<input type="text" name="${className}[]" class="${className}" placeholder="Project Name">
+                                 <button type="button" class="delete-btn" onclick="removeField(this)">Delete</button>`;
+      } else {
+        div.innerHTML = `<input type="text" name="${className}[]" class="${className}">
+                                 <button type="button" class="delete-btn" onclick="removeField(this)">Delete</button>`;
+      }
+      section.appendChild(div);
+    }
+
+    function removeField(button) {
+      button.parentElement.remove();
+    }
+    window.onload = function() {
+        const storedData = JSON.parse(localStorage.getItem("resumeData"));
+        if (storedData) {
+            document.getElementById("name").value = storedData.name;
+            document.getElementById("location").value = storedData.location;
+            document.getElementById("contact").value = storedData.contact;
+            document.getElementById("email").value = storedData.email;
+            document.getElementById("linkedin").value = storedData.linkedin;
+            document.getElementById("objective").value = storedData.objective;
+
+            // Fill skills
+            const skillsSection = document.getElementById("skillsSection");
+            skillsSection.innerHTML = "";
+            storedData.skills.forEach(skill => {
+                addField('skillsSection', 'skill-input');
+                const lastInput = skillsSection.lastChild.querySelector('.skill-input');
+                lastInput.value = skill;
+            });
+
+            // Fill education
+            const educationSection = document.getElementById("educationSection");
+            educationSection.innerHTML = "";
+            storedData.education.forEach(edu => {
+                addField('educationSection', 'education-input');
+                const lastInput = educationSection.lastChild;
+                lastInput.querySelector('.education-input').value = edu.degree;
+                lastInput.querySelector('input[name="educationInstitute[]"]').value = edu.institute;
+                lastInput.querySelector('input[name="educationYear[]"]').value = edu.year;
+            });
+
+            // Fill projects
+            const projectsSection = document.getElementById("projectsSection");
+            projectsSection.innerHTML = "";
+            storedData.projects.forEach(proj => {
+                addField('projectsSection', 'project-input');
+                const lastInput = projectsSection.lastChild.querySelector('.project-input');
+                lastInput.value = proj;
+            });
+
+            // Fill languages
+            const languagesSection = document.getElementById("languagesSection");
+            languagesSection.innerHTML = "";
+            storedData.languages.forEach(lang => {
+                addField('languagesSection', 'language-input');
+                const lastInput = languagesSection.lastChild.querySelector('.language-input');
+                lastInput.value = lang;
+            });
+        }
+    };
+</script>
+
+  
+</body>
+
+</html>

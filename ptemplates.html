@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<link rel="stylesheet" href="ptemplates.css">
+</head>
+<body>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="logo">Resume Builder</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <section class="header">
+            <div class="container">
+                <h1>Preview Your Selected Template</h1>
+                <p><strong>Customize and make it your own.</strong></p>
+            </div>
+          </section>
+
+
+
+    <!-- Template Preview Section -->
+    <div class="template-preview-container">
+        <div class="template-frame">
+            <img id="templateImg" src="assets/images/demo-1.png" alt="Template Preview">
+        </div>
+        <!-- Zoom Controls Below the Template -->
+        <div class="zoom-controls">
+            <button onclick="zoomIn()">+</button>
+            <button onclick="zoomOut()">-</button>
+        </div>
+    </div>
+
+    <!-- Template Features Description -->
+    <div class="template-description">
+        <h3>Professional Layout</h3>
+        <p>ATS-Friendly, customizable sections, clean and modern design to help you stand out.</p>
+    </div>
+
+    <!-- Call-to-Action Button -->
+    <div class="cta-button">
+        <a href="#">Use This Template</a>
+    </div>
+
+    <!-- Additional Templates Section -->
+    <div class="additional-templates">
+        <h4>Explore Other Templates</h4>
+        <div class="template-thumbnails">
+            <img src="assets/images/demo-2.png" alt="Alternate Template 1" onclick="changeTemplate('assets/images/demo-2.png')">
+            <img src="assets/images/demo-3.png" alt="Alternate Template 2" onclick="changeTemplate('assets/images/demo-3.png')">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Resume Builder. All Rights Reserved.</p>
+    </footer>
+    <!-- Zoom Functionality Script -->
+    <script>
+        let zoomLevel = 1;
+
+        function zoomIn() {
+            zoomLevel += 0.1;
+            document.getElementById('templateImg').style.transform = `scale(${zoomLevel})`;
+        }
+
+        function zoomOut() {
+            if (zoomLevel > 0.1) {
+                zoomLevel -= 0.1;
+                document.getElementById('templateImg').style.transform = `scale(${zoomLevel})`;
+            }
+        }
+
+        function changeTemplate(templateSrc) {
+            document.getElementById('templateImg').src = templateSrc;
+        }
+    </script>
+
+</body>
+</html>

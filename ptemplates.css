@@ -1,0 +1,214 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; 
+    background-color: #f9f9f9; 
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h1, h2, h3 {
+    color: #333; 
+  }
+/* Navigation Bar */
+nav {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: white; /* Light navbar */
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    
+}
+
+nav .logo {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: 450px;
+}
+
+nav .nav-links li {
+    margin-left: 50px;
+}
+
+nav .nav-links a {
+    color: rgb(87, 166, 202);
+    font-size: 16px;
+}
+.header {
+    margin-top: 80px;
+    background-color: #e6f7ff; /* Light blue background */
+    padding: 80px 0; /* Increased top padding */
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px; /* Space between header and pricing section */
+  }
+  
+  .header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif; /* Modern font */
+  }
+  
+  .header p {
+    font-size: 18px;
+    color: #666;
+    font-family: 'Roboto', sans-serif;
+  }
+
+/* Template Preview */
+.template-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0; /* Remove side margins */
+}
+
+.template-frame {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    overflow: hidden;
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Optional: Limit max width */
+    height: 80vh; /* Increased height to make template taller */
+    text-align: center;
+    margin: 0; /* Remove default margins */
+}
+
+.template-frame img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Zoom-in / Zoom-out controls */
+.zoom-controls {
+    margin-top: 10px;
+}
+
+.zoom-controls button {
+    padding: 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.zoom-controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Template Description */
+.template-description {
+    text-align: center;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.template-description h3 {
+    color: #333;
+    font-size: 24px;
+}
+
+.template-description p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Use This Template button */
+.cta-button {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.cta-button a {
+    text-decoration: none;
+    padding: 12px 30px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.cta-button a:hover {
+    background-color: #0056b3;
+}
+
+/* Additional Templates Section */
+.additional-templates {
+    margin: 40px 20px;
+    text-align: center;
+}
+
+.additional-templates h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.additional-templates .template-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.additional-templates .template-thumbnails img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.additional-templates .template-thumbnails img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Section */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.footer a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer */
+footer {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+  }

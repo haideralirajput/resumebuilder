@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .edit-btn {
+            background-color: #007bff;
+        }
+
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Resume Preview</h2>
+        <iframe id="pdfViewer"></iframe>
+        <div>
+            <button onclick="downloadPDF()">Download as PDF</button>
+            <button class="edit-btn" onclick="editResume()">Edit Resume</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+    <script>
+        // Retrieve data from localStorage
+        const resumeData = JSON.parse(localStorage.getItem("resumeData"));
+
+        // Generate PDF
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        let startY = 20;
+
+        // Name and Contact Information
+        doc.setFontSize(18);
+        doc.setFont(undefined, "bold");
+        doc.text(resumeData.name, doc.internal.pageSize.width / 2, startY, { align: "center" });
+        doc.setFont(undefined, "normal");
+        startY += 5;
+
+        doc.setFontSize(10);
+        doc.text(resumeData.location, doc.internal.pageSize.width / 2, startY, { align: "center" });
+        startY += 5;
+
+        const contactInfo = `${resumeData.contact}  |  ${resumeData.email}`;
+        doc.text(contactInfo, doc.internal.pageSize.width / 2, startY, { align: "center" });
+        startY += 5;
+        const linkedInProfile = `LinkedIn: ${resumeData.linkedin}`;
+        doc.text(linkedInProfile, doc.internal.pageSize.width / 2, startY, { align: "center" });
+        startY += 10;
+
+        // Objective Section
+        doc.setFontSize(12);
+        doc.setFont(undefined, "bold");
+        doc.text("Objective", 20, startY);
+        startY += 5;
+        doc.setDrawColor(0);
+        doc.setLineWidth(0.5);
+        doc.line(20, startY, 190, startY);
+        startY += 5;
+        doc.setFont(undefined, "normal");
+        doc.setFontSize(10);
+        doc.text(resumeData.objective, 20, startY, { maxWidth: 170, align: "justify" });
+        startY += 15;
+
+        // Skills Section
+        doc.setFontSize(12);
+        doc.setFont(undefined, "bold");
+        doc.text("Skills", 20, startY);
+        startY += 5;
+        doc.setDrawColor(0);
+        doc.setLineWidth(0.5);
+        doc.line(20, startY, 190, startY);
+        startY += 5;
+        doc.setFont(undefined, "normal");
+        doc.setFontSize(10);
+        resumeData.skills.forEach(skill => {
+            doc.text(`• ${skill}`, 20, startY);
+            startY += 5;
+        });
+        startY += 10;
+
+        // Education Section
+        doc.setFontSize(12);
+        doc.setFont(undefined, "bold");
+        doc.text("Education", 20, startY);
+        startY += 5;
+        doc.setDrawColor(0);
+        doc.setLineWidth(0.5);
+        doc.line(20, startY, 190, startY);
+        startY += 5;
+        resumeData.education.forEach(edu => {
+            doc.setFont(undefined, "bold");
+            doc.text(edu.institute, 20, startY);
+            doc.setFont(undefined, "normal");
+            doc.text(edu.degree, 20, startY + 5);
+            doc.text(edu.year, 190, startY + 5, { align: "right" });
+            startY += 15;
+        });
+        startY += 10;
+
+        // Projects Section
+        doc.setFontSize(12);
+        doc.setFont(undefined, "bold");
+        doc.text("Projects", 20, startY);
+        startY += 5;
+        doc.setDrawColor(0);
+        doc.setLineWidth(0.5);
+        doc.line(20, startY, 190, startY);
+        startY += 5;
+        resumeData.projects.forEach(project => {
+            doc.text(`• ${project}`, 20, startY);
+            startY += 5;
+        });
+        startY += 10;
+
+        // Languages Section
+        doc.setFontSize(12);
+        doc.setFont(undefined, "bold");
+        doc.text("Languages", 20, startY);
+        startY += 5;
+        doc.setDrawColor(0);
+        doc.setLineWidth(0.5);
+        doc.line(20, startY, 190, startY);
+        startY += 5;
+        resumeData.languages.forEach(language => {
+            doc.text(`• ${language}`, 20, startY);
+            startY += 5;
+        });
+
+        // Embed PDF in iframe
+        const pdfData = doc.output('datauristring');
+        document.getElementById("pdfViewer").src = pdfData;
+
+        // Download PDF function
+        function downloadPDF() {
+            doc.save("resume.pdf");
+        }
+
+        // Edit Resume function
+        function editResume() {
+            // Redirect to the form page with pre-filled data
+            window.location.href = "utemplates.html"; // Replace with your form page URL
+        }
+    </script>
+</body>
+
+</html>

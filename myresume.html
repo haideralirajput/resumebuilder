@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Haider Ali - Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .personal-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .personal-info img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 1.5em;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+        .skills-list, .project-list, .languages-list {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .toggle-btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+
+        .section-content {
+            display: none;
+        }
+
+        .project-item {
+            margin-bottom: 15px;
+        }
+
+        .project-item p {
+            margin: 5px 0;
+        }
+        /* Navigation Bar */
+        nav {
+    display: flex;
+    justify-content: space-between; /* Space between the logo and links */
+    align-items: center;
+    background-color: white; /* Light navbar */
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+nav .logo {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: auto; /* Pushes links to the right side */
+}
+
+nav .nav-links li {
+    margin-left: 30px; /* Adjust spacing between items */
+}
+
+nav .nav-links a {
+    color: rgb(87, 166, 202);
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+    </style>
+</head>
+<body>
+            <!-- Navigation Bar -->
+            <nav>
+                <div class="logo">Resume Builder</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="myresume.html">My Resume</a></li>
+    
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+    <div class="container">
+        <h1>Muhammad Haider Ali</h1>
+        <div class="personal-info">
+            <p>North Karachi</p>
+            <p>0300-2907467 | nawazhadi92@gmail.com</p>
+            <p><strong>LinkedIn:</strong> haideralirajput</p>
+        </div>
+
+        <div>
+            <h2 class="section-title">Objective</h2>
+            <p>Aspiring web developer with strong knowledge of HTML, CSS, JavaScript, PHP, and OOP principles, along with proficiency in MySQL. Eager to contribute to a development team by building responsive, user-friendly web applications while continuously enhancing my skills.</p>
+        </div>
+
+        <div>
+            <h2 class="section-title">Education</h2>
+            <p><strong>For Men Govt College</strong> - Intermediate (1st year)</p>
+            <p><strong>Governor House IT Initiative</strong> - Persuing Cloud Applied Gen AI Engineering Course</p>
+            <p><strong>Aptech North Karachi</strong> - Pursuing Software Engineering Diploma</p>
+            <p><strong>Rose Land Secondary School</strong> - Matriculation, A+</p>
+        </div>
+
+        <div>
+            <h2 class="section-title">Skills</h2>
+            <button class="toggle-btn" onclick="toggleSection('skillsContent')">Toggle Skills</button>
+            <div id="skillsContent" class="section-content">
+                <ul class="skills-list">
+                    <li>TypeScript</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>MySQL</li>
+                    <li>HTML, CSS</li>
+                    <li>Git, GitHub</li>
+                    <li>Bootstrap & jQuery</li>
+                    <li>Next.js, Laravel</li>
+                    <li>Microsoft Word, Excel, PowerPoint</li>
+                    <li>Node.js</li>
+                    <li>SEO</li>
+                    <li>Figma</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="section-title">Projects</h2>
+            <ul class="project-list">
+                <li class="project-item">
+                    <p><strong>Rain Water Harvesting Website:</strong></p>
+                    <p>A static website showcasing the importance and methods of rainwater harvesting, designed to promote sustainable water management practices.</p>
+                </li>
+                <li class="project-item">
+                    <p><strong>Hussaini Medical Services:</strong></p>
+                    <p>A dynamic website for Hussaini Medical Services, developed with PHP, MySQL, HTML, CSS, and JavaScript, providing features like doctor search, online appointment booking, and patient management.</p>
+                </li>
+                <li class="project-item">
+                    <p><strong>VaccineNet COVID-19 Website:</strong></p>
+                    <p>VaccineNet COVID-19 Website integrates OTP verification for login, with features like patient requests, COVID-19 test updates, and vaccination status management.</p>
+                </li>
+                <li class="project-item">
+                  <p><strong>Decorvista Interior Design E-Commerce Website:</strong></p>
+                  <p>Decorvista is an interior design-focused e-commerce platform that allows users to browse, customize, and purchase home decor items. The website integrates a seamless checkout process, with advanced cart management, user order tracking, and personalized design recommendations.</p>
+              </li>
+            </ul>
+        </div>
+
+        <div>
+            <h2 class="section-title">Languages</h2>
+            <ul class="languages-list">
+                <li>English</li>
+                <li>Urdu</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

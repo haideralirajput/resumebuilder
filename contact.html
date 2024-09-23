@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Resume Builder</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+<!-- Contact Us Section -->
+<section class="header">
+    <div class="container">
+      <h1>Get In Touch With Us</h1>
+      <p><strong>If you have any questions or need assistance, feel free to reach out. We're here to help you build the perfect resume!</strong></p>
+    </div>
+  </section>
+  
+          
+    <!-- Main Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-details-form">
+                <!-- Contact Details on Left -->
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-info">
+                            <h3>Support Email</h3>
+                            <p>hello@yourdomain.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-info">
+                            <h3>Phone Number</h3>
+                            <p>(039) 245 90238</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-calendar"></i>
+                        <div class="contact-info">
+                            <h3>Working Hours</h3>
+                            <p>9 AM to 5 PM Sunday to Friday</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-info">
+                            <h3>Location</h3>
+                            <p>72 St, Newyork, Downtown Tower</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Form on Right -->
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                        <textarea id="message" name="message" placeholder="Message"></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- Footer -->
+   <footer>
+    <p>&copy; 2024 Resume Builder. All Rights Reserved.</p>
+</footer>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting the usual way
+
+    // Display success alert
+    const alertDiv = document.createElement('div');
+    alertDiv.classList.add('alert');
+    alertDiv.textContent = 'Your message is sent successfully!';
+
+    // Insert the alert into the page
+    const form = document.getElementById('contactForm');
+    form.parentNode.insertBefore(alertDiv, form);
+
+    // Show the alert and remove it after a few seconds
+    alertDiv.style.display = 'block';
+    setTimeout(() => {
+        alertDiv.style.display = 'none';
+    }, 3000);
+
+    // Optionally, clear the form fields after submission
+    form.reset();
+});
+
+  </script>
+</body>
+</html>

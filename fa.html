@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Simple CSS for Modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 20% auto; /* Centering */
+            padding: 15px; /* Adjust padding */
+            border: 1px solid #888;
+            width: 50%; /* Adjust width */
+            max-width: 400px; /* Set a maximum width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Template 2 -->
+    <div class="template-box">
+        <img src="assets/images/demo-2.png" alt="Classic Template" class="template-img">
+        <h3>Classic Template</h3>
+        <a href="#" class="use-template-btn" id="useTemplateBtn">Use This Template</a>
+    </div>
+
+    <!-- Modal -->
+    <div id="templateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>This template is not available right now.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("templateModal");
+            var btn = document.getElementById("useTemplateBtn");
+            var closeBtn = document.getElementsByClassName("close")[0];
+
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal.style.display = "block"; // Show the modal
+            });
+
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none"; // Hide the modal
+            });
+
+            window.addEventListener("click", function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none"; // Hide the modal
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
